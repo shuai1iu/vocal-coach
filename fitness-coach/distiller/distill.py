@@ -31,7 +31,7 @@ load_dotenv(ROOT / ".env")
 PROMPT = (ROOT / "prompt.md").read_text(encoding="utf-8")
 
 MODEL = "claude-opus-4-7"
-MAX_TOKENS = 8192
+MAX_TOKENS = 16384
 
 
 # ---------------- input format handling ---------------- #

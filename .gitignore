@@ -17,7 +17,10 @@ tests/.cache/
 
 # Distilled journals (may contain personal health info — keep local)
 fitness-coach/training-journal.local.md
+fitness-coach/training-journal.distilled.md
 **/journal.local.md
+**/training-journal.distilled.md
+**/*.distilled.md
 
 # Gemini history exports (personal chat data — keep local)
 fitness-coach/distiller/gemini-history.*
