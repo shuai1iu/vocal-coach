@@ -1,0 +1,14 @@
+# Secrets
+.env
+*.env
+tests/.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Test artifacts
+tests/reports/
+tests/.cache/
