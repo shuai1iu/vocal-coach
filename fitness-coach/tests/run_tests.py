@@ -39,7 +39,10 @@ MODEL = "claude-opus-4-7"
 JUDGE_MODEL = "claude-sonnet-4-6"
 MAX_TOKENS = 4096
 
-client = anthropic.Anthropic()
+# Pace between cases (seconds) to respect Tier 1 rate limit (30K input tokens/min on Opus)
+SLEEP_BETWEEN_CASES = int(os.getenv("SLEEP_BETWEEN_CASES", "35"))
+
+client = anthropic.Anthropic(max_retries=5)  # SDK retries 429 with backoff
 
 
 def text_of(message) -> str:
@@ -314,6 +317,8 @@ def main():
         if r.error:
             print(f"    ERROR: {r.error}")
         print()
+        if i < len(cases) and SLEEP_BETWEEN_CASES > 0:
+            time.sleep(SLEEP_BETWEEN_CASES)
 
     report = render_report(results)
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
