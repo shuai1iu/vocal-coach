@@ -1,0 +1,24 @@
+# secrets
+.env
+*.env
+
+# venv
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# distillation artifacts (contain private content)
+*.distilled.md
+gemini-history.*
+distiller/gemini-history.*
+distiller/*.distilled.md
+
+# test reports
+tests/reports/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
